@@ -43,7 +43,7 @@ async def start(message: Message):
 """
     await message.answer_photo(photo=photo, caption=caption, reply_markup=main_menu_kb())
 
-@dp.message()
+@dp.message(lambda message: message.text != "/start")
 async def fallback(message: Message):
     await message.answer(
         """
